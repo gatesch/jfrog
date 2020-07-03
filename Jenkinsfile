@@ -17,7 +17,12 @@ def answerQuestion = ''
         sh "phpunit --bootstrap src/Email.php tests"
 
         // Artifactory
-//        stage 'Artifactory'
+        stage 'Artifactory'
+        def server = Artifactory.server 101
+        sh "zip php-${gitCommit()}.zip *.php"
+        def uploadSpec = readFile 'php-${gitCommit()}.zip'
+        def buildInfo2 = server.upload spec: uploadSpec
+        server.publishBuildInfo buildInfo2
 //        sh "zip php-${gitCommit()}.zip *.php"
 //        sh "curl -u admin:redhat12 -X PUT http://api.tesch.loc/artifactory/reports/php-${gitCommit()}.zip ./php-${gitCommit()}.zip"
 
