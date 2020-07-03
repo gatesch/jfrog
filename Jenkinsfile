@@ -19,7 +19,7 @@ def answerQuestion = ''
         // Artifactory
         stage 'Artifactory'
         sh "zip php-${gitCommit()}.zip *.php"
-        sh "curl -u admin:redhat12 -X PUT http://api.tesch.loc/artifactory/generic-local/${gitCommit()}.zip ./${gitCommit()}.zip"
+        sh "curl -u admin:redhat12 -X PUT http://api.tesch.loc/artifactory/generic-local/php-${gitCommit()}.zip ./php-${gitCommit()}.zip"
 
         // SonarQube
 //        stage 'SCA / SonarQube'
