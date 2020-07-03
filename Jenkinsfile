@@ -17,9 +17,9 @@ def answerQuestion = ''
         sh "phpunit --bootstrap src/Email.php tests"
 
         // Artifactory
-        stage 'Artifactory'
-        sh "zip php-${gitCommit()}.zip *.php"
-        sh "curl -u admin:redhat12 -X PUT http://api.tesch.loc/artifactory/reports/php-${gitCommit()}.zip ./php-${gitCommit()}.zip"
+//        stage 'Artifactory'
+//        sh "zip php-${gitCommit()}.zip *.php"
+//        sh "curl -u admin:redhat12 -X PUT http://api.tesch.loc/artifactory/reports/php-${gitCommit()}.zip ./php-${gitCommit()}.zip"
 
         // SonarQube
 //        stage 'SCA / SonarQube'
