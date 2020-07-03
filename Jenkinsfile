@@ -18,7 +18,7 @@ def answerQuestion = ''
 
         // Artifactory
         stage 'Artifactory'
-        def server = Artifactory.server 101
+        def server = Artifactory.server SERVER_ID
         sh "zip php-${gitCommit()}.zip *.php"
         def uploadSpec = readFile 'php-${gitCommit()}.zip'
         def buildInfo2 = server.upload spec: uploadSpec
