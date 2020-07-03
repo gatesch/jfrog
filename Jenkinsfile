@@ -23,7 +23,7 @@ def answerQuestion = ''
         def uploadSpec = """{
          "files": [
            {
-             "pattern": "*.zip",
+             "pattern": "php-{gitCommit()}.zip",
              "target": "reports/"
            }
          ]
