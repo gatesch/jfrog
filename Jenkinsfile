@@ -29,6 +29,7 @@ def answerQuestion = ''
          ]
          }"""
          server.upload spec: uploadSpec
+         server.upload spec: uploadSpec, failNoOp: true
 
 //        sh "curl -u admin:redhat12 -X PUT http://api.tesch.loc/artifactory/reports/php-${gitCommit()}.zip ./php-${gitCommit()}.zip"
 
